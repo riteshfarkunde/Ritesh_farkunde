@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>porfilio</title>
+  <style>
+    body {
+      font-family: 'Roboto Slab', serif;
+      color: white;
+      background-color: #68BDCA;
+    }
+
+    #btt {
+      position: fixed;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      bottom: 0;
+      right: 0;
+      opacity: 0.8;
+      width: 50px;
+      transition: margin-bottom 0.6s, opacity 0.6s;
+    }
+
+    #btt:hover {
+      margin-bottom: 25px;
+      opacity: 1;
+      transition: margin-bottom 0.6s, opacity 0.6s;
+    }
+
+
+    /* WELCOME */
+
+    #welcome {
+      font-family: 'Amatic SC', cursive;
+      color: #FCFFFF;
+      background: url("https://images.unsplash.com/photo-1423589989400-cc0270157ed0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=458cf2662814c68b6eb24d9e55801fa0");
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      width: auto;
+      padding: 5% 5% 5% 5%;
+    }
+
+    #welcome h1,
+    #portfolio h1 {
+      font-size: 70pt;
+      font-weight: bold;
+    }
+
+    #welcome h3,
+    #portfolio h3 {
+      font-size: 28pt;
+    }
+
+
+    /* DOWN ARROW */
+
+    #press {
+      width: 60px;
+      border: solid 4px white;
+      border-radius: 40px;
+      margin-top: 20%;
+      transition: background-color 0.6s, opacity 0.6s, margin-top 1s;
+    }
+
+    #press:hover {
+      background-color: #5BC2B4;
+      opacity: 0.8;
+      margin-top: 21%;
+      transition: background-color 0.6s, opacity 0.6s, margin-top 1s;
+    }
+
+
+    /* ABOUT */
+
+    #about {
+      background-color: #0A3739;
+      padding: 5% 5% 5% 5%;
+      height: 100vh;
+      width: auto;
+    }
+
+    #about h1 {
+      font-family: 'Amatic SC', cursive;
+      font-size: 40pt;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    #about p {
+      text-align: left;
+    }
+
+    #about #email img {
+      text-align: left;
+      width: 25px;
+    }
+
+    #email {
+      background-color: #26816E;
+      padding: 2% 2% 2% 2%;
+      border-radius: 40px;
+      transition: box-shadow 0.5s, color 0.8s, background-color 0.5s;
+    }
+
+    #portScroll {
+      background-color: #26816E;
+      padding: 2% 2% 2% 2%;
+      border-radius: 40px;
+      margin-left: 2%;
+      transition: box-shadow 0.5s, color 0.8s, background-color 0.5s;
+    }
+
+    #about #portScroll img {
+      text-align: left;
+      margin-right: 5px;
+      width: 18px;
+    }
+
+    #portScroll a,
+    #portScroll a:hover {
+      color: white;
+      text-decoration: none;
+    }
+
+    #email:hover,
+    #portScroll:hover {
+      box-shadow: 5px 15px 30px #062928;
+      background-color: #1A616C;
+      transition: box-shadow 0.5s, color 0.8s, background-color 0.5s;
+      cursor: pointer;
+    }
+
+    #self img {
+      width: 35%;
+      float: right;
+      border: solid 8px #26816E;
+      border-radius: 2000px;
+      box-shadow: 5px 15px 30px #062928;
+    }
+
+
+    /* PORTFOLIO */
+
+    #portfolio {
+      font-family: 'Amatic SC', cursive;
+      background-color: #68BDCA;
+      text-decoration: none;
+      color: white;
+      padding: 5% 5% 5% 5%;
+      width: auto;
+      height: 100vh;
+    }
+
+    #portfolio h3 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 15pt;
+    }
+
+    #port img {
+      width: 500px;
+      opacity: 0.5;
+      transition: opacity 0.5s, box-shadow 0.5s;
+    }
+
+    #port img:hover {
+      opacity: 1;
+      box-shadow: 0px 10px 50px #406D91;
+      transition: opacity 0.5s, box-shadow 0.5s;
+    }
+
+
+    /* NAV */
+
+    #openmenu {
+      font-family: 'Amatic SC', cursive;
+      font-size: 20pt;
+      background-color: #68BDCA;
+      border-bottom: solid 2px white;
+      border-right: solid 2px white;
+      position: fixed;
+      padding: 2px;
+      width: 10%;
+      text-align: center;
+      top: 0;
+      left: 0;
+      transition: width 0.5s;
+    }
+
+    #openmenu:hover {
+      width: 15%;
+      transition: width 0.5s;
+      cursor: pointer;
+    }
+
+    .overlay {
+      /* Height & width depends on how you want to reveal the overlay (see JS below) */
+      height: 100%;
+      width: 0;
+      position: fixed;
+
+      z-index: 1;
+      left: 0;
+      top: 0;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.9);
+      overflow-x: hidden;
+      transition: 0.5s;
+
+    }
+
+
+
+
+    .overlay-content {
+      position: relative;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .overlay a {
+      padding: 8px;
+      text-decoration: none;
+      font-size: 36px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+
+
+
+    .overlay a:hover,
+    .overlay a:focus {
+      color: #f1f1f1;
+    }
+
+
+    /* Position the close button (top right corner) */
+
+    .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px !important;
+      /* Override the font-size specified earlier (36px) for all navigation links */
+    }
+
+
+    /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+
+    @media screen and (max-height: 450px) {
+      .overlay a {
+        font-size: 20px
+      }
+
+      .closebtn {
+        font-size: 40px !important;
+        top: 15px;
+        right: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Thanks for taking a look! -->
+
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <!-- BACK TO TOP ARROW -->
+  <a class="smoothScroll" href="#welcome"><img id="btt" class="img-responsive"
+      src="http://allfordance.com/image/orbital-arrow-up.png"></a>
+
+  <!-- NAV -->
+  <div id="myNav" class="overlay">
+
+    <!-- Button to close the overlay navigation -->
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <!-- Overlay content -->
+    <div class="overlay-content">
+      <a class="smoothScroll" href="#welcome" onclick="closeNav()">Home</a>
+      <a class="smoothScroll" href="#about" onclick="closeNav()">About</a>
+      <a class="smoothScroll" href="#portfolio" onclick="closeNav()">Portfolio</a>
+    </div>
+
+  </div>
+
+  <!-- Use any element to open/show the overlay navigation menu -->
+  <span id="openmenu" onclick="openNav()"><b>Menu</b></span>
+
+  <center>
+    <!-- WELCOME -->
+    <div id="welcome">
+      <h1>Polianthes</h1>
+      <h3><b>Web Developer</b></h3>
+      <a class="smoothScroll" href="#about"><img id="press" src="http://gowingwoman.com/img/menu_down_arrow.png"></a>
+    </div>
+  </center>
+
+  <!-- ABOUT -->
+  <div id="about">
+    <h1>About Me</h1>
+    <center>
+      <div id="self">
+        <img class="img-responsive"
+          src="http://vignette3.wikia.nocookie.net/pokepastatrollpasta/images/e/e7/Derpy_Charmander_Is_derpy_I_dont_think_I_ve_seen_this_gif_29ade7_4327381.gif/revision/latest?cb=20140613173519">
+      </div>
+    </center>
+    <br>
+    <p>Hi! I’m Emerald Teve, a.k.a. Polianthes, and web development is my passion.<br><br> I help people build websites
+      they love, and I absolutely adore making people smile.<br><br> When I’m not programming, you can find me drawing,
+      or drinking a nice cup
+      of tea.
+      <br><br>If you'd like, scroll down to see some examples of my work!<br><br>Want to work together? I’d love to hear
+      from you!
+    </p>
+    <br><br>
+    <span id="email">
+      <img src="http://sellbuybook.com/images/email.png"> emerald.teve@gmail.com</span>
+    <span id="portScroll">
+      <a class="smoothScroll" href="#portfolio"><img src="http://www.meegankent.com/images/portfolio-icon2.png"> View My
+        Portfolio</a></span>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div id="portfolio">
+    <h1>Portfolio</h1>
+    <h3>Here you'll find some projects I've worked on! Click on a project to see a demo of it.</h3>
+    <br>
+    <center>
+      <div id="port" class="container">
+        <table>
+          <!-- PORTFOLIO -->
+          <tr>
+            <a target="_blank" href="https://s.codepen.io/Polianthes/debug/xVQoRx#"><img
+                class="img-responsive thumbnail"
+                src="https://images.unsplash.com/photo-1423589989400-cc0270157ed0?crop=entropy&fit=crop&fm=jpg&h=900&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1300"></a>
+          </tr>
+          <!-- UPWORK -->
+          <tr>
+            <a target="_blank" href="https://s.codepen.io/Polianthes/debug/NNBLQw/XBrGRqgdvoZM"><img
+                class="img-responsive thumbnail"
+                src="https://farm8.staticflickr.com/7274/26213112344_c162d26712_b.jpg"></a>
+          </tr>
+          <!-- TRIBUTE PAGE -->
+          <tr>
+            <a target="_blank" href="https://s.codepen.io/Polianthes/debug/NNpJwN"><img class="img-responsive thumbnail"
+                src="https://farm8.staticflickr.com/7387/26213110134_8afa53cf2e_b.jpg"></a>
+          </tr>
+        </table>
+      </div>
+    </center>
+  </div>
+</body>
+<script>
+
+  function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+
+
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+
+  $(function () {
+
+    $('.smoothScroll').click(function () {
+      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1300); // The number here represents the speed of the scroll in milliseconds
+          return false;
+        }
+      }
+    });
+  });
+
+  // Change the speed to whatever you want
+  // Personally i think 1000 is too much
+  // Try 800 or below, it seems not too much but it will make a difference
+</script>
+
+</html>
