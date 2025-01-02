@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            background: url(img3.png);
+            background-repeat: no-repeat;
+          
+            padding: 30px;
+            /* padding-bottom: 100px;
+            padding-left: 30px;
+            padding-right: 30px;
+            padding-top: 30px; */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            max-width: 100%;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 8px 0;
+            background:transparent;
+            border: 2px solid #9c0d0d;
+            border-radius: 40px;
+            box-sizing: border-box;
+            font-size: 16px;
+            color: rgb(13, 4, 4);
+        }
+
+        .login-container input[type="submit"] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin: 8px 0;
+            cursor: pointer;
+            border-radius: 40px;
+            font-size: 16px;
+        }
+
+        .login-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        ::placeholder{
+            color: black;
+        }
+      
+
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2>Login </h2>
+        <form action="/submit-login" method="post">
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="password" name="password" placeholder="Email"><br>
+            <input type="checkbox"> Remember Me
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+
+</html>
